@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import Investors from './components/Investors';
+import ProductImpact from './components/ProductImpact';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 
@@ -13,7 +13,7 @@ function App() {
       <main>
         <Hero />
         <Features />
-        <Investors />
+        <ProductImpact />
         <Pricing />
       </main>
       <Footer />

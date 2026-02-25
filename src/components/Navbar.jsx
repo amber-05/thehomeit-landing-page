@@ -1,45 +1,73 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Home } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Features', href: '#features' },
+    { name: 'Impact', href: '#impact' },
+    { name: 'Pricing', href: '#pricing' },
+  ];
+
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="glass"
-      style={{
-        position: 'fixed',
-        top: '20px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '90%',
-        maxWidth: '1200px',
-        height: '64px',
-        borderRadius: '32px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 2rem',
-        zIndex: 1000,
-      }}
+      className={`navbar glass ${scrolled ? 'nav-scrolled' : ''}`}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Home size={24} color="var(--accent-color)" />
-        <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
-          homeit
-        </span>
-      </div>
+      <div className="nav-container">
+        <div className="nav-logo">
+          <Home size={24} color="var(--accent-color)" />
+          <span>homeit</span>
+        </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-        <a href="#features" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Features</a>
-        <a href="#investors" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Investors</a>
-        <a href="#pricing" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}>Pricing</a>
-        <button className="btn-primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.9rem' }}>
-          Get Started
+        <div className="nav-links-desktop">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href}>{link.name}</a>
+          ))}
+          <button className="btn-primary nav-btn">Get Started</button>
+        </div>
+
+        <button
+          className="mobile-menu-toggle"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="nav-links-mobile glass"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <button className="btn-primary" style={{ width: '100%', marginTop: '1rem', borderRadius: '12px' }}>
+              Get Started
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };

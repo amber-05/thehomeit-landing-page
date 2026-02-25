@@ -38,9 +38,18 @@ const FEATURE_DATA = [
 const Features = () => {
     return (
         <section id="features" className="container">
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                <h2 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '1rem' }}>Built for Modern Living</h2>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Every feature designed to simplify society operations.</p>
+            <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.02em' }}
+                >
+                    Everything your society <br /><span className="gradient-text">actually needs.</span>
+                </motion.h2>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.5 }}>
+                    The complete operating system for modern residential living, built with precision and ease of use.
+                </p>
             </div>
 
             <div style={{
@@ -65,7 +74,12 @@ const Features = () => {
                             gap: '1.5rem',
                             transition: 'transform 0.3s ease',
                         }}
-                        whileHover={{ transform: 'translateY(-10px)', background: 'rgba(255,255,255,0.05)' }}
+                        whileHover={{
+                            translateY: -12,
+                            background: 'rgba(255,255,255,0.06)',
+                            borderColor: 'rgba(99, 102, 241, 0.3)',
+                            boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+                        }}
                     >
                         <div style={{
                             color: 'var(--accent-color)',

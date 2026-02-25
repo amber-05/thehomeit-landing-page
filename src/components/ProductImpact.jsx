@@ -8,9 +8,9 @@ const stats = [
     { label: 'Growth MoM', value: '25%', icon: <TrendingUp size={24} /> },
 ];
 
-const Investors = () => {
+const ProductImpact = () => {
     return (
-        <section id="investors" style={{ background: 'var(--secondary-bg)', padding: '10rem 0' }}>
+        <section id="impact" style={{ background: 'var(--secondary-bg)', padding: '10rem 0' }}>
             <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -19,12 +19,11 @@ const Investors = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '2rem', lineHeight: 1.1 }}>
-                        Solving the <br /> <span className="gradient-text">Urban Living Puzzle.</span>
+                        Elevating <br /> <span className="gradient-text">Urban Living.</span>
                     </h2>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', marginBottom: '3rem', lineHeight: 1.6 }}>
-                        homeit is not just a management tool; it's a data-driven ecosystem connecting residents,
-                        management, and local service providers. With a rapidly growing urban population,
-                        we are positioned at the forefront of the Smart City revolution.
+                        homeit is more than just a software; it's a seamless ecosystem designed to enhance every aspect of society life.
+                        From effortless security to streamlined community interactions, we're building the operating system for the modern neighborhood.
                     </p>
 
                     <div style={{ display: 'flex', gap: '2rem' }}>
@@ -56,7 +55,7 @@ const Investors = () => {
                         zIndex: 0
                     }} />
 
-                    <h3 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '1.5rem', position: 'relative' }}>Investment Highlights</h3>
+                    <h3 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '1.5rem', position: 'relative' }}>Why homeit?</h3>
                     <ul style={{ listSet: 'none', display: 'flex', flexDirection: 'column', gap: '1.2rem', position: 'relative' }}>
                         <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-color)', marginTop: '8px' }}></div>
@@ -77,7 +76,7 @@ const Investors = () => {
                     </ul>
 
                     <button className="btn-primary" style={{ marginTop: '3rem', width: '100%' }}>
-                        Request Pitch Deck
+                        Get Started
                     </button>
                 </motion.div>
             </div>
@@ -85,4 +84,4 @@ const Investors = () => {
     );
 };
 
-export default Investors;
+export default ProductImpact;
