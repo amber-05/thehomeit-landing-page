@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Home, Twitter, Linkedin, Facebook, Mail } from 'lucide-react';
 
 const Footer = () => {
@@ -6,12 +7,12 @@ const Footer = () => {
         <footer style={{ background: 'var(--bg-color)', borderTop: '1px solid var(--glass-border)', padding: '6rem 0' }}>
             <div className="container" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '4rem' }}>
                 <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem' }}>
+                    <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem', textDecoration: 'none', color: 'inherit' }}>
                         <Home size={28} color="var(--accent-color)" />
                         <span style={{ fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>
                             homeit
                         </span>
-                    </div>
+                    </Link>
                     <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '300px' }}>
                         Elevating society living through smart management and community-first digital solutions.
                     </p>
@@ -46,7 +47,7 @@ const Footer = () => {
                     <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1.5rem' }}>Resources</h4>
                     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-secondary)' }}>
                         <li style={{ cursor: 'pointer' }}>Support Center</li>
-                        <li style={{ cursor: 'pointer' }}>Privacy Policy</li>
+                        <li><Link to="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link></li>
                         <li style={{ cursor: 'pointer' }}>Terms of Service</li>
                         <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                             <Mail size={16} /> support@thehomeit.com

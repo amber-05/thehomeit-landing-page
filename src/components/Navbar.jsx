@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Menu, X } from 'lucide-react';
 
@@ -13,9 +14,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'Impact', href: '#impact' },
-    { name: 'Pricing', href: '#pricing' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Impact', href: '/#impact' },
+    { name: 'Pricing', href: '/#pricing' },
   ];
 
   return (
@@ -25,10 +26,10 @@ const Navbar = () => {
       className={`navbar glass ${scrolled ? 'nav-scrolled' : ''}`}
     >
       <div className="nav-container">
-        <div className="nav-logo">
+        <Link to="/" className="nav-logo" style={{ textDecoration: 'none', color: 'inherit' }}>
           <Home size={24} color="var(--accent-color)" />
           <span>homeit</span>
-        </div>
+        </Link>
 
         <div className="nav-links-desktop">
           {navLinks.map((link) => (
