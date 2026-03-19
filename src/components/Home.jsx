@@ -2,7 +2,7 @@ import React from 'react';
 import Hero from './Hero';
 import Features from './Features';
 import ProductImpact from './ProductImpact';
-import Pricing from './Pricing';
+import PricingContact from './Pricing';
 
 const Home = () => {
     return (
@@ -10,7 +10,7 @@ const Home = () => {
             <Hero />
             <Features />
             <ProductImpact />
-            <Pricing />
+            <PricingContact />
         </main>
     );
 };
