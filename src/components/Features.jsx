@@ -37,7 +37,7 @@ const FEATURE_DATA = [
 
 const Features = () => {
     return (
-        <section id="features" className="container">
+        <section id="features" className="container" aria-label="Homeit Society Management App Features">
             <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const Features = () => {
                     Everything your society <br /><span className="gradient-text">actually needs.</span>
                 </motion.h2>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.5 }}>
-                    The complete operating system for modern residential living, built with precision and ease of use.
+                    Homeit is the complete society management app for modern residential communities — built with precision, security, and ease of use.
                 </p>
             </div>
 

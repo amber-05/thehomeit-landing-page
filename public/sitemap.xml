@@ -7,7 +7,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://thehomeit.com/</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- Features Section (anchor on homepage) -->
   <url>
     <loc>https://thehomeit.com/#features</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,7 +23,15 @@
   <!-- Product Impact / About Section (anchor on homepage) -->
   <url>
     <loc>https://thehomeit.com/#impact</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pricing / Contact Section -->
+  <url>
+    <loc>https://thehomeit.com/#pricing</loc>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -31,7 +39,7 @@
   <!-- Privacy Policy Page -->
   <url>
     <loc>https://thehomeit.com/privacy</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

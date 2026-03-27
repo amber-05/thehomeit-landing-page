@@ -4,10 +4,5 @@
 User-agent: *
 Allow: /
 
-# Block access to build artifacts and internal files
-Disallow: /dist/
-Disallow: /*.json$
-Disallow: /*.map$
-
 # Sitemap location
 Sitemap: https://thehomeit.com/sitemap.xml
