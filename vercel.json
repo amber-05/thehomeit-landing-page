@@ -1,15 +1,1 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.thehomeit.com"
-        }
-      ],
-      "destination": "https://thehomeit.com/$1",
-      "permanent": true
-    }
-  ]
-}
+{}
