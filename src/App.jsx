@@ -4,10 +4,12 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <div className="app-container">
         <Navbar />
         <Routes>

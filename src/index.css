@@ -27,6 +27,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  cursor: none !important;
 }
 
 body {
@@ -231,8 +232,8 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 140%;
-  z-index: -1;
+  height: 100%;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -260,6 +261,22 @@ button {
   font-weight: 400;
 }
 
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: rgba(167, 139, 250, 0.95);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(99,102,241,0.15);
+}
+
 .hero-btn-group {
   display: flex;
   gap: 1.5rem;
@@ -271,20 +288,75 @@ button {
   border-radius: 50px;
 }
 
-/* Spline Helpers */
-.spline-loader {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--accent-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+.hero-trust {
+  display: flex;
+  gap: 2.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
 }
 
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.scroll-line {
+  width: 1.5px;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(99,102,241,0.8), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* Building Animation Keyframes */
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
+}
+
+.star-twinkle {
+  animation: starTwinkle 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.2; r: 0.3; }
+  50% { opacity: 1; r: 0.9; }
+}
+
+/* Window blink variants — staggered */
+.win-blink-0 { animation: winBlink 4.1s ease-in-out infinite; }
+.win-blink-1 { animation: winBlink 5.7s ease-in-out infinite 1.2s; }
+.win-blink-2 { animation: winBlink 3.3s ease-in-out infinite 0.6s; }
+.win-blink-3 { animation: winBlink 6.2s ease-in-out infinite 2.1s; }
+.win-blink-4 { animation: winBlink 4.8s ease-in-out infinite 0.9s; }
+
+@keyframes winBlink {
+  0%, 85%, 100% { opacity: 1; }
+  88%, 97% { opacity: 0.15; }
+}
+
+/* Idle float for the whole building scene */
+.building-canvas {
+  animation: buildingFloat 6s ease-in-out infinite;
+}
+
+@keyframes buildingFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
 /* Responsive Queries */
@@ -327,6 +399,16 @@ button {
   .hero-3d-container {
     height: 100%;
   }
+
+  .hero-trust {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -336,5 +418,17 @@ button {
 
   section {
     padding: 6rem 0;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+/* On touch / mobile devices — restore system cursor */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
   }
 }
