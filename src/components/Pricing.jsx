@@ -9,11 +9,12 @@ const PricingContact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!email.trim()) return;
-        // Opens the user's mail client with a pre-filled subject
-        const subject = encodeURIComponent('Pricing Inquiry — Homeit');
+        
+        const subject = encodeURIComponent(`Pricing Request: ${email}`);
         const body = encodeURIComponent(
-            `Hi Homeit team,\n\nI'm interested in learning about your pricing plans.\n\nMy email: ${email}\n\nPlease send me the details.\n\nThanks!`
+            `Dear Homeit Team,\n\nI would like to receive a tailored pricing proposal for my society.\n\nContact Email: ${email}\n\nPlease get in touch with the details.\n\nBest regards.`
         );
+        
         window.location.href = `mailto:support@thehomeit.com?subject=${subject}&body=${body}`;
         setSubmitted(true);
     };
