@@ -48,6 +48,7 @@ const Footer = () => {
                     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-secondary)' }}>
                         <li style={{ cursor: 'pointer' }}>Support Center</li>
                         <li><Link to="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link></li>
+                        <li><a href="https://admin.thehomeit.com" style={{ color: 'inherit', textDecoration: 'none' }}>Admin Portal</a></li>
                         <li style={{ cursor: 'pointer' }}>Terms of Service</li>
                         <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                             <Mail size={16} /> support@thehomeit.com

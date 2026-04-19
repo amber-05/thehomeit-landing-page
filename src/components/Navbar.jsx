@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: 'Features', href: '/#features' },
     { name: 'Impact', href: '/#impact' },
     { name: 'Pricing', href: '/#pricing' },
+    { name: 'Admin Login', href: 'https://admin.thehomeit.com' },
   ];
 
   return (
