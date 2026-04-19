@@ -54,8 +54,8 @@ const Hero = () => {
                     <button className="btn-primary">
                         Get Started Free
                     </button>
-                    <button className="btn-secondary">
-                        See it in Action
+                    <button className="btn-secondary" onClick={() => window.location.href = 'https://admin.thehomeit.com'}>
+                        Admin Login
                     </button>
                 </motion.div>
 
