@@ -1,48 +1,55 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const CustomCursor = () => {
-    const outerRef = useRef(null);
-    const innerRef = useRef(null);
-    const [cursorType, setCursorType] = useState('default'); // 'default' | 'hover' | 'building'
-    const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-    const outerPos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    const cursorRef = useRef(null);
+    const [cursorType, setCursorType] = useState('default'); // 'default' | 'hover' | 'active'
+    const mousePos = useRef({ x: 0, y: 0 });
+    const cursorPos = useRef({ x: 0, y: 0 });
     const rafId = useRef(null);
 
     useEffect(() => {
-        const onMove = (e) => {
-            pos.current = { x: e.clientX, y: e.clientY };
+        const onMouseMove = (e) => {
+            mousePos.current = { x: e.clientX, y: e.clientY };
 
-            // Snap inner dot immediately
-            if (innerRef.current) {
-                innerRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
-            }
-
-            // Detect element under cursor
+            // Detect interactive elements
             const el = document.elementFromPoint(e.clientX, e.clientY);
             if (el) {
-                const isInteractive = el.closest('a, button, [role="button"], input, textarea, select, label');
-                const isBuilding = el.closest('.hero-section, .building-canvas');
-                if (isInteractive) {
-                    setCursorType('hover');
-                } else if (isBuilding) {
-                    setCursorType('building');
-                } else {
-                    setCursorType('default');
-                }
+                const isHoverable = el.closest('a, button, [role="button"], input, textarea, select, label, .hover-target');
+                setCursorType(isHoverable ? 'hover' : 'default');
             }
         };
 
-        window.addEventListener('mousemove', onMove);
+        const onMouseDown = () => setCursorType('active');
+        const onMouseUp = () => setCursorType('default');
 
-        // Smooth outer ring with lerp
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mousedown', onMouseDown);
+        window.addEventListener('mouseup', onMouseUp);
+
         const animate = () => {
-            const lerp = 0.12;
-            outerPos.current.x += (pos.current.x - outerPos.current.x) * lerp;
-            outerPos.current.y += (pos.current.y - outerPos.current.y) * lerp;
+            const lerpFactor = 0.15;
+            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * lerpFactor;
+            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * lerpFactor;
 
-            if (outerRef.current) {
-                const size = cursorType === 'hover' ? 52 : cursorType === 'building' ? 64 : 36;
-                outerRef.current.style.transform = `translate(${outerPos.current.x - size / 2}px, ${outerPos.current.y - size / 2}px)`;
+            if (cursorRef.current) {
+                const dx = mousePos.current.x - cursorPos.current.x;
+                const dy = mousePos.current.y - cursorPos.current.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+                
+                // Speed-based stretching
+                const stretch = 1 + Math.min(distance / 120, 0.4);
+                
+                // Cursor size based on state
+                let size = 32;
+                if (cursorType === 'hover') size = 64;
+                if (cursorType === 'active') size = 24;
+
+                const transform = `translate(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px) rotate(${angle}deg) scaleX(${stretch})`;
+                
+                cursorRef.current.style.transform = transform;
+                cursorRef.current.style.width = `${size}px`;
+                cursorRef.current.style.height = `${size}px`;
             }
 
             rafId.current = requestAnimationFrame(animate);
@@ -50,70 +57,34 @@ const CustomCursor = () => {
         rafId.current = requestAnimationFrame(animate);
 
         return () => {
-            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mousedown', onMouseDown);
+            window.removeEventListener('mouseup', onMouseUp);
             cancelAnimationFrame(rafId.current);
         };
     }, [cursorType]);
 
-    const outerSize = cursorType === 'hover' ? 52 : cursorType === 'building' ? 64 : 36;
-    const outerBorder = cursorType === 'hover'
-        ? '2px solid rgba(99, 102, 241, 0.9)'
-        : cursorType === 'building'
-            ? '2px solid rgba(251, 191, 36, 0.8)'
-            : '1.5px solid rgba(255,255,255,0.6)';
-    const outerBg = cursorType === 'hover'
-        ? 'rgba(99, 102, 241, 0.12)'
-        : cursorType === 'building'
-            ? 'rgba(251, 191, 36, 0.08)'
-            : 'transparent';
-    const innerColor = cursorType === 'hover'
-        ? '#6366f1'
-        : cursorType === 'building'
-            ? '#fbbf24'
-            : 'white';
-
     return (
-        <>
-            {/* Outer ring */}
-            <div
-                ref={outerRef}
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: outerSize,
-                    height: outerSize,
-                    borderRadius: '50%',
-                    border: outerBorder,
-                    background: outerBg,
-                    pointerEvents: 'none',
-                    zIndex: 99999,
-                    backdropFilter: 'blur(2px)',
-                    transition: 'width 0.25s ease, height 0.25s ease, border 0.25s ease, background 0.25s ease',
-                    willChange: 'transform',
-                    mixBlendMode: 'normal',
-                }}
-            />
-            {/* Inner dot */}
-            <div
-                ref={innerRef}
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: 8,
-                    height: 8,
-                    borderRadius: '50%',
-                    background: innerColor,
-                    pointerEvents: 'none',
-                    zIndex: 100000,
-                    transition: 'background 0.2s ease',
-                    willChange: 'transform',
-                    boxShadow: `0 0 10px 2px ${innerColor}66`,
-                }}
-            />
-        </>
+        <div
+            ref={cursorRef}
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: 32,
+                height: 32,
+                borderRadius: '50%',
+                backgroundColor: 'white',
+                pointerEvents: 'none',
+                zIndex: 999999,
+                mixBlendMode: 'difference',
+                transition: 'width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease',
+                willChange: 'transform, width, height',
+                boxShadow: cursorType === 'hover' ? '0 0 20px rgba(255,255,255,0.4)' : 'none',
+            }}
+        />
     );
 };
 
 export default CustomCursor;
+
