@@ -17,7 +17,6 @@ const Navbar = () => {
     { name: 'Features', href: '/#features' },
     { name: 'Impact', href: '/#impact' },
     { name: 'Pricing', href: '/#pricing' },
-    { name: 'Admin Login', href: 'https://admin.thehomeit.com' },
   ];
 
   return (
@@ -36,6 +35,9 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a key={link.name} href={link.href}>{link.name}</a>
           ))}
+          <a href="https://admin.thehomeit.com" className="nav-admin-link" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none' }}>
+            Admin Login
+          </a>
           <button className="btn-primary nav-btn">Get Started</button>
         </div>
 
@@ -64,7 +66,15 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <button className="btn-primary" style={{ width: '100%', marginTop: '1rem', borderRadius: '12px' }}>
+            <a
+              href="https://admin.thehomeit.com"
+              className="btn-secondary"
+              style={{ textAlign: 'center', textDecoration: 'none' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Admin Login
+            </a>
+            <button className="btn-primary" style={{ width: '100%', borderRadius: '12px' }}>
               Get Started
             </button>
           </motion.div>
