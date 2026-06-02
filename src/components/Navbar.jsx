@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoImg from '../assets/Homeit_logo_icon_safe_1024.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +28,15 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <Link to="/" className="nav-logo" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Home size={24} color="var(--accent-color)" />
-          <span>homeit</span>
+          <div style={{
+            width: 34, height: 34, borderRadius: 10, overflow: 'hidden',
+            background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+            boxShadow: '0 0 0 1px rgba(232,64,87,0.25), 0 4px 16px rgba(0,0,0,0.4)',
+          }}>
+            <img src={logoImg} alt="homeit logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
+          </div>
+          <span style={{ background: 'linear-gradient(90deg, #fff 40%, rgba(232,64,87,0.8) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>homeit</span>
         </Link>
 
         <div className="nav-links-desktop">

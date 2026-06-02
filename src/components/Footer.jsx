@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Twitter, Linkedin, Facebook, Mail } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Mail } from 'lucide-react';
+import logoImg from '../assets/Homeit_logo_icon_safe_1024.png';
 
 const Footer = () => {
     return (
@@ -8,7 +9,9 @@ const Footer = () => {
             <div className="container" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '4rem' }}>
                 <div>
                     <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.5rem', textDecoration: 'none', color: 'inherit' }}>
-                        <Home size={28} color="var(--accent-color)" />
+                        <div style={{ width: 36, height: 36, borderRadius: 8, overflow: 'hidden', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                            <img src={logoImg} alt="homeit logo" style={{ width: 30, height: 30, objectFit: 'contain' }} />
+                        </div>
                         <span style={{ fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>
                             homeit
                         </span>

@@ -36,7 +36,7 @@ const PricingContact = () => {
                 transform: 'translate(-50%, -50%)',
                 width: '600px',
                 height: '600px',
-                background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(232,64,87,0.12) 0%, transparent 70%)',
                 pointerEvents: 'none',
             }} />
 
@@ -44,23 +44,29 @@ const PricingContact = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.05 }}
                     transition={{ duration: 0.6 }}
                     style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto' }}
                 >
+                    {/* Eyebrow */}
+                    <p style={{
+                        color: 'var(--accent-color)', fontSize: '0.82rem', fontWeight: 700,
+                        letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem',
+                    }}>Pricing</p>
+
                     {/* Badge */}
                     <div style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '0.5rem',
-                        background: 'rgba(99,102,241,0.12)',
-                        border: '1px solid rgba(99,102,241,0.3)',
+                        background: 'rgba(232,64,87,0.1)',
+                        border: '1px solid rgba(232,64,87,0.3)',
                         borderRadius: '999px',
                         padding: '0.4rem 1.2rem',
                         fontSize: '0.85rem',
                         color: 'var(--accent-color)',
                         fontWeight: 600,
-                        marginBottom: '2rem',
+                        marginBottom: '1.5rem',
                         letterSpacing: '0.03em',
                     }}>
                         <Mail size={14} />
@@ -104,7 +110,7 @@ const PricingContact = () => {
                             onSubmit={handleSubmit}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.05 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             style={{
                                 display: 'flex',
