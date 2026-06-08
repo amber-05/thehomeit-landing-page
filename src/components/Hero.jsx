@@ -92,7 +92,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.76, ease: [0.22, 1, 0.36, 1] }}
                     className="hero-btn-group"
                 >
-                    <button className="btn-primary" onClick={() => window.location.href = 'https://admin.thehomeit.com'}>
+                    <button className="btn-primary" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
                         Get Started Free
                     </button>
                     <button className="btn-secondary" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>

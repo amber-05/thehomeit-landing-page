@@ -130,7 +130,7 @@ const ProductImpact = () => {
                     <button
                         className="btn-primary"
                         style={{ marginTop: '2.5rem', width: '100%', borderRadius: '14px' }}
-                        onClick={() => window.location.href = 'https://admin.thehomeit.com'}
+                        onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Get Started Free
                     </button>

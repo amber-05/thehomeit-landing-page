@@ -46,7 +46,7 @@ const Navbar = () => {
           <a href="https://admin.thehomeit.com" className="nav-admin-link" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)', textDecoration: 'none' }}>
             Admin Login
           </a>
-          <button className="btn-primary nav-btn">Get Started</button>
+          <button className="btn-primary nav-btn" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>Get Started</button>
         </div>
 
         <button
@@ -82,7 +82,7 @@ const Navbar = () => {
             >
               Admin Login
             </a>
-            <button className="btn-primary" style={{ width: '100%', borderRadius: '12px' }}>
+            <button className="btn-primary" style={{ width: '100%', borderRadius: '12px' }} onClick={() => { setIsMenuOpen(false); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }}>
               Get Started
             </button>
           </motion.div>
