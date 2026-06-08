@@ -3,11 +3,10 @@ import { motion } from 'framer-motion';
 import useCountUp from '../hooks/useCountUp';
 
 const STATS = [
-    { end: 500,  suffix: '+',    label: 'Societies Onboarded', decimals: 0 },
-    { end: 50,   suffix: ',000+', label: 'Residents Active',    decimals: 0 },
-    { end: 99.9, suffix: '%',    label: 'Platform Uptime',      decimals: 1 },
-    { end: 2,    prefix: '₹', suffix: 'Cr+', label: 'Dues Collected', decimals: 0 },
-    { end: 4.9,  suffix: '★',    label: 'App Store Rating',     decimals: 1 },
+    { end: 2,    suffix: '',   label: 'Societies Onboarded', decimals: 0 },
+    { end: 146,  suffix: '+',  label: 'Residents Active',    decimals: 0 },
+    { end: 99.9, suffix: '%',  label: 'Platform Uptime',     decimals: 1 },
+    { end: 4.8,  suffix: '★',  label: 'User Satisfaction',   decimals: 1 },
 ];
 
 const StatItem = ({ end, suffix = '', prefix = '', label, decimals }) => {
@@ -42,7 +41,6 @@ const TrustStrip = () => (
             borderTop: '1px solid rgba(255,255,255,0.05)',
             borderBottom: '1px solid rgba(255,255,255,0.05)',
             background: 'rgba(255,255,255,0.015)',
-            backdropFilter: 'blur(20px)',
             padding: '1.5rem 0',
         }}
     >

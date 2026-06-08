@@ -107,8 +107,8 @@ const Hero = () => {
                     transition={{ delay: 1.1, duration: 1 }}
                     className="hero-trust"
                 >
-                    <span>✦ 500+ Societies</span>
-                    <span>✦ 50,000+ Residents</span>
+                    <span>✦ 2 Societies</span>
+                    <span>✦ 146+ Residents</span>
                     <span>✦ 99.9% Uptime</span>
                 </motion.div>
             </motion.div>

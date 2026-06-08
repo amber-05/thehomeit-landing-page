@@ -1,90 +1,111 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+
+const LERP = 0.11;
 
 const CustomCursor = () => {
-    const cursorRef = useRef(null);
-    const [cursorType, setCursorType] = useState('default'); // 'default' | 'hover' | 'active'
-    const mousePos = useRef({ x: 0, y: 0 });
-    const cursorPos = useRef({ x: 0, y: 0 });
-    const rafId = useRef(null);
+    const dotRef  = useRef(null);
+    const ringRef = useRef(null);
+    const mouse   = useRef({ x: -100, y: -100 });
+    const ring    = useRef({ x: -100, y: -100 });
+    const hovered = useRef(false);
+    const pressed = useRef(false);
+    const raf     = useRef(null);
 
     useEffect(() => {
-        const onMouseMove = (e) => {
-            mousePos.current = { x: e.clientX, y: e.clientY };
-
-            // Detect interactive elements
-            const el = document.elementFromPoint(e.clientX, e.clientY);
-            if (el) {
-                const isHoverable = el.closest('a, button, [role="button"], input, textarea, select, label, .hover-target');
-                setCursorType(isHoverable ? 'hover' : 'default');
-            }
+        const onMove = (e) => {
+            mouse.current.x = e.clientX;
+            mouse.current.y = e.clientY;
         };
 
-        const onMouseDown = () => setCursorType('active');
-        const onMouseUp = () => setCursorType('default');
+        const onOver = (e) => {
+            hovered.current = !!e.target.closest(
+                'button, a, [role="button"], input, textarea, select, label'
+            );
+        };
 
-        window.addEventListener('mousemove', onMouseMove);
-        window.addEventListener('mousedown', onMouseDown);
-        window.addEventListener('mouseup', onMouseUp);
+        const onDown = () => { pressed.current = true; };
+        const onUp   = () => { pressed.current = false; };
 
-        const animate = () => {
-            const lerpFactor = 0.15;
-            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * lerpFactor;
-            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * lerpFactor;
+        window.addEventListener('mousemove', onMove, { passive: true });
+        document.addEventListener('mouseover', onOver, { passive: true });
+        window.addEventListener('mousedown', onDown, { passive: true });
+        window.addEventListener('mouseup', onUp, { passive: true });
 
-            if (cursorRef.current) {
-                const dx = mousePos.current.x - cursorPos.current.x;
-                const dy = mousePos.current.y - cursorPos.current.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-                
-                // Speed-based stretching
-                const stretch = 1 + Math.min(distance / 120, 0.4);
-                
-                // Cursor size based on state
-                let size = 32;
-                if (cursorType === 'hover') size = 64;
-                if (cursorType === 'active') size = 24;
+        const tick = () => {
+            const mx = mouse.current.x;
+            const my = mouse.current.y;
 
-                const transform = `translate(${cursorPos.current.x - size / 2}px, ${cursorPos.current.y - size / 2}px) rotate(${angle}deg) scaleX(${stretch})`;
-                
-                cursorRef.current.style.transform = transform;
-                cursorRef.current.style.width = `${size}px`;
-                cursorRef.current.style.height = `${size}px`;
+            // Dot — snaps exactly to cursor
+            if (dotRef.current) {
+                dotRef.current.style.transform = `translate(${mx}px,${my}px)`;
             }
 
-            rafId.current = requestAnimationFrame(animate);
+            // Ring — lerps behind
+            ring.current.x += (mx - ring.current.x) * LERP;
+            ring.current.y += (my - ring.current.y) * LERP;
+
+            if (ringRef.current) {
+                const scale  = pressed.current ? 0.75 : hovered.current ? 1.65 : 1;
+                const border = hovered.current
+                    ? 'rgba(232,64,87,0.85)'
+                    : 'rgba(255,255,255,0.45)';
+                const bg = hovered.current
+                    ? 'rgba(232,64,87,0.07)'
+                    : 'transparent';
+
+                ringRef.current.style.transform =
+                    `translate(${ring.current.x}px,${ring.current.y}px) scale(${scale})`;
+                ringRef.current.style.borderColor = border;
+                ringRef.current.style.background  = bg;
+            }
+
+            raf.current = requestAnimationFrame(tick);
         };
-        rafId.current = requestAnimationFrame(animate);
+
+        raf.current = requestAnimationFrame(tick);
 
         return () => {
-            window.removeEventListener('mousemove', onMouseMove);
-            window.removeEventListener('mousedown', onMouseDown);
-            window.removeEventListener('mouseup', onMouseUp);
-            cancelAnimationFrame(rafId.current);
+            window.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseover', onOver);
+            window.removeEventListener('mousedown', onDown);
+            window.removeEventListener('mouseup', onUp);
+            cancelAnimationFrame(raf.current);
         };
-    }, [cursorType]);
+    }, []); // runs once — no state, no re-renders
 
     return (
-        <div
-            ref={cursorRef}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                backgroundColor: 'white',
-                pointerEvents: 'none',
-                zIndex: 999999,
-                mixBlendMode: 'difference',
-                transition: 'width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease',
-                willChange: 'transform, width, height',
-                boxShadow: cursorType === 'hover' ? '0 0 20px rgba(255,255,255,0.4)' : 'none',
-            }}
-        />
+        <>
+            {/* Ring — lags behind */}
+            <div
+                ref={ringRef}
+                style={{
+                    position: 'fixed',
+                    top: -20, left: -20,
+                    width: 40, height: 40,
+                    borderRadius: '50%',
+                    border: '1.5px solid rgba(255,255,255,0.45)',
+                    pointerEvents: 'none',
+                    zIndex: 99998,
+                    willChange: 'transform',
+                    transition: 'border-color 0.18s ease, background 0.18s ease, transform 0.12s ease',
+                }}
+            />
+            {/* Dot — exact position */}
+            <div
+                ref={dotRef}
+                style={{
+                    position: 'fixed',
+                    top: -3, left: -3,
+                    width: 6, height: 6,
+                    borderRadius: '50%',
+                    background: '#E84057',
+                    pointerEvents: 'none',
+                    zIndex: 99999,
+                    willChange: 'transform',
+                }}
+            />
+        </>
     );
 };
 
 export default CustomCursor;
-

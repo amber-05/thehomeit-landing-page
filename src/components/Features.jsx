@@ -122,12 +122,11 @@ const Features = () => {
                             style={{
                                 padding: '2rem',
                                 borderRadius: '20px',
-                                background: 'linear-gradient(145deg, rgba(232,64,87,0.06) 0%, rgba(6,3,4,0.7) 100%)',
+                                background: 'linear-gradient(145deg, rgba(232,64,87,0.06) 0%, rgba(6,3,4,0.9) 100%)',
                                 border: '1px solid rgba(232,64,87,0.14)',
                                 borderTop: '1px solid rgba(232,64,87,0.28)',
                                 position: 'relative',
                                 overflow: 'hidden',
-                                backdropFilter: 'blur(16px)',
                                 transition: 'border-color 0.3s ease',
                                 cursor: 'default',
                             }}

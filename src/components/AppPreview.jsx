@@ -127,6 +127,7 @@ const AppPreview = () => {
                             height: 0,
                             transformStyle: 'preserve-3d',
                             transform: 'rotateX(16deg) rotateY(0deg)',
+                            willChange: 'transform',
                         }}
                     >
                         {IMAGES.map((src, i) => {

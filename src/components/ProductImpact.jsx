@@ -93,10 +93,9 @@ const ProductImpact = () => {
                         borderRadius: '28px',
                         position: 'relative',
                         overflow: 'hidden',
-                        background: 'linear-gradient(145deg, rgba(232,64,87,0.07) 0%, rgba(8,4,5,0.6) 100%)',
+                        background: 'linear-gradient(145deg, rgba(232,64,87,0.07) 0%, rgba(8,4,5,0.95) 100%)',
                         border: '1px solid rgba(232,64,87,0.15)',
                         borderTop: '1px solid rgba(232,64,87,0.3)',
-                        backdropFilter: 'blur(20px)',
                     }}
                 >
                     <div style={{
