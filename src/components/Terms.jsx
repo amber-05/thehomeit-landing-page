@@ -38,7 +38,7 @@ const Terms = () => (
                 </Section>
 
                 <Section title="3. User Accounts">
-                    You are responsible for maintaining the confidentiality of your account credentials. You agree to notify us immediately at support@thehomeit.com if you suspect any unauthorised use of your account. Homeit reserves the right to terminate accounts that violate these terms.
+                    You are responsible for maintaining the confidentiality of your account credentials. You agree to notify us immediately at yugverma05@gmail.com if you suspect any unauthorised use of your account. Homeit reserves the right to terminate accounts that violate these terms.
                 </Section>
 
                 <Section title="4. Acceptable Use">
@@ -79,7 +79,7 @@ const Terms = () => (
                 </Section>
 
                 <Section title="10. Contact">
-                    For questions about these Terms, contact us at <a href="mailto:support@thehomeit.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>support@thehomeit.com</a>.
+                    For questions about these Terms, contact us at <a href="mailto:yugverma05@gmail.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>yugverma05@gmail.com</a>.
                 </Section>
             </motion.div>
         </div>

@@ -84,7 +84,7 @@ const Careers = () => (
                         <motion.a
                             key={i}
                             {...fade(i * 0.07)}
-                            href={`mailto:support@thehomeit.com?subject=Application — ${title}`}
+                            href={`mailto:yugverma05@gmail.com?subject=Application — ${title}`}
                             style={{ textDecoration: 'none', color: 'inherit' }}
                         >
                             <motion.div
@@ -123,7 +123,7 @@ const Careers = () => (
 
                 <motion.p {...fade(0.2)} style={{ textAlign: 'center', color: 'var(--text-secondary)', marginTop: '2.5rem', fontSize: '0.9rem' }}>
                     Don't see your role? Send a speculative application to{' '}
-                    <a href="mailto:support@thehomeit.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>support@thehomeit.com</a>
+                    <a href="mailto:yugverma05@gmail.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>yugverma05@gmail.com</a>
                 </motion.p>
             </div>
         </section>

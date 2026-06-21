@@ -5,7 +5,7 @@ import { ChevronDown, Mail, ExternalLink } from 'lucide-react';
 const FAQS = [
     {
         q: 'How do I add my society to Homeit?',
-        a: 'Write to us at support@thehomeit.com with your society name, city, and number of units. Our team will onboard you within 24 hours and guide you through the setup.',
+        a: 'Write to us at yugverma05@gmail.com with your society name, city, and number of units. Our team will onboard you within 24 hours and guide you through the setup.',
     },
     {
         q: 'Can residents use Homeit without installing an app?',
@@ -111,7 +111,7 @@ const Support = () => (
 
                 {/* Quick links */}
                 <motion.div {...fade(0.1)} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem' }}>
-                    <a href="mailto:support@thehomeit.com" style={{ textDecoration: 'none' }}>
+                    <a href="mailto:yugverma05@gmail.com" style={{ textDecoration: 'none' }}>
                         <div style={{
                             padding: '1.25rem 1.5rem', borderRadius: '14px',
                             background: 'rgba(232,64,87,0.06)', border: '1px solid rgba(232,64,87,0.18)',
@@ -120,7 +120,7 @@ const Support = () => (
                             <Mail size={20} color="var(--accent-color)" />
                             <div>
                                 <p style={{ fontWeight: 600, fontSize: '0.9rem' }}>Email Support</p>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>support@thehomeit.com</p>
+                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>yugverma05@gmail.com</p>
                             </div>
                         </div>
                     </a>
@@ -153,7 +153,7 @@ const Support = () => (
 
                 <motion.p {...fade(0.2)} style={{ textAlign: 'center', color: 'var(--text-secondary)', marginTop: '3rem', fontSize: '0.9rem' }}>
                     Still stuck? Email us at{' '}
-                    <a href="mailto:support@thehomeit.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>support@thehomeit.com</a>
+                    <a href="mailto:yugverma05@gmail.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>yugverma05@gmail.com</a>
                     {' '}and we'll get back to you within 24 hours.
                 </motion.p>
             </div>

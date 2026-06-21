@@ -17,7 +17,7 @@ const Contact = () => {
         e.preventDefault();
         const subject = encodeURIComponent(`Homeit Inquiry — ${form.society || form.name}`);
         const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nSociety: ${form.society}\n\nMessage:\n${form.message}`);
-        window.location.href = `mailto:support@thehomeit.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:yugverma05@gmail.com?subject=${subject}&body=${body}`;
         setSent(true);
     };
 
@@ -56,7 +56,7 @@ const Contact = () => {
                         {/* Info */}
                         <motion.div {...fade(0.1)} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                             {[
-                                { Icon: Mail, label: 'Email', value: 'support@thehomeit.com', href: 'mailto:support@thehomeit.com' },
+                                { Icon: Mail, label: 'Email', value: 'yugverma05@gmail.com', href: 'mailto:yugverma05@gmail.com' },
                                 { Icon: MapPin, label: 'Based in', value: 'India', href: null },
                             ].map(({ Icon, label, value, href }, i) => (
                                 <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>

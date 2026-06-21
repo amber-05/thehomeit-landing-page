@@ -118,7 +118,7 @@ const About = () => (
                     Ready to transform your society?
                 </motion.h2>
                 <motion.p {...fade(0.08)} style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '1.05rem' }}>
-                    Write to us at <a href="mailto:support@thehomeit.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>support@thehomeit.com</a> or get started directly.
+                    Write to us at <a href="mailto:yugverma05@gmail.com" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>yugverma05@gmail.com</a> or get started directly.
                 </motion.p>
                 <motion.button {...fade(0.16)} className="btn-primary" style={{ borderRadius: '50px', padding: '1rem 2.5rem', fontSize: '1rem' }}
                     onClick={() => { window.location.href = '/'; setTimeout(() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }), 100); }}>

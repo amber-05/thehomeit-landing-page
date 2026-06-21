@@ -25,9 +25,9 @@ const Footer = () => (
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, maxWidth: '280px', fontSize: '0.9rem' }}>
                     The operating system for modern Indian residential societies.
                 </p>
-                <a href="mailto:support@thehomeit.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem', transition: 'color 0.2s' }}
+                <a href="mailto:yugverma05@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem', transition: 'color 0.2s' }}
                     onMouseEnter={e => e.currentTarget.style.color = 'white'} onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                    <Mail size={15} /> support@thehomeit.com
+                    <Mail size={15} /> yugverma05@gmail.com
                 </a>
             </div>
 

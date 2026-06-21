@@ -15,7 +15,7 @@ const PricingContact = () => {
             `Dear Homeit Team,\n\nI would like to receive a tailored pricing proposal for my society.\n\nContact Email: ${email}\n\nPlease get in touch with the details.\n\nBest regards.`
         );
         
-        window.location.href = `mailto:support@thehomeit.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:yugverma05@gmail.com?subject=${subject}&body=${body}`;
         setSubmitted(true);
     };
 
@@ -93,14 +93,14 @@ const PricingContact = () => {
                         We believe pricing should fit your society — not the other way around.
                         Drop your email and we'll send you a personalised plan, or reach us directly at{' '}
                         <a
-                            href="mailto:support@thehomeit.com"
+                            href="mailto:yugverma05@gmail.com"
                             style={{
                                 color: 'var(--accent-color)',
                                 textDecoration: 'none',
                                 fontWeight: 600,
                             }}
                         >
-                            support@thehomeit.com
+                            yugverma05@gmail.com
                         </a>
                     </p>
 
