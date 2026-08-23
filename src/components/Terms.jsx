@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEO from './SEO';
 
 const Section = ({ title, children }) => (
     <div style={{ marginBottom: '2.5rem' }}>
@@ -11,6 +12,11 @@ const Section = ({ title, children }) => (
 
 const Terms = () => (
     <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-color)' }}>
+        <SEO
+            title="Terms of Service — TheHomeIT (Homeit)"
+            description="Terms of service and legal agreement for TheHomeIT (thehomeit.com / Homeit) housing society management platform."
+            canonical="https://thehomeit.com/terms"
+        />
         <div className="container" style={{ maxWidth: '760px', margin: '0 auto', padding: '5rem 4rem 7rem' }}>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <p style={{ color: 'var(--accent-color)', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>Legal</p>

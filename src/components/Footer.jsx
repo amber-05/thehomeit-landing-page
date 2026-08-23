@@ -65,7 +65,7 @@ const Footer = () => (
 
         <div className="container" style={{ marginTop: '3.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.83rem' }}>
-                &copy; 2026 Homeit. Built for better communities.
+                &copy; 2026 TheHomeIT (Homeit). Built for better communities.
             </p>
             <a href="https://admin.thehomeit.com" style={{
                 padding: '0.5rem 1.25rem', borderRadius: '50px', fontSize: '0.82rem', fontWeight: 600,

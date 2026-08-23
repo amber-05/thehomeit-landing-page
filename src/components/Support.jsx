@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Mail, ExternalLink } from 'lucide-react';
+import SEO from './SEO';
 
 const FAQS = [
     {
@@ -88,6 +89,11 @@ const fade = (delay = 0) => ({
 
 const Support = () => (
     <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-color)' }}>
+        <SEO
+            title="Support & FAQs — TheHomeIT (Homeit)"
+            description="Find answers to common questions about TheHomeIT (thehomeit.com / Homeit), visitor management, automated billing, and onboarding."
+            canonical="https://thehomeit.com/support"
+        />
         <section style={{ padding: '5rem 0', position: 'relative', overflow: 'hidden' }}>
             <div style={{
                 position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',

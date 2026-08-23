@@ -7,41 +7,57 @@
   <!-- Homepage -->
   <url>
     <loc>https://thehomeit.com/</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Features Section (anchor on homepage) -->
+  <!-- About TheHomeIT -->
   <url>
-    <loc>https://thehomeit.com/#features</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://thehomeit.com/about</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Support & Help Center -->
+  <url>
+    <loc>https://thehomeit.com/support</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Product Impact / About Section (anchor on homepage) -->
+  <!-- Contact TheHomeIT -->
   <url>
-    <loc>https://thehomeit.com/#impact</loc>
-    <lastmod>2026-03-27</lastmod>
+    <loc>https://thehomeit.com/contact</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Careers -->
+  <url>
+    <loc>https://thehomeit.com/careers</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Pricing / Contact Section -->
+  <!-- Terms of Service -->
   <url>
-    <loc>https://thehomeit.com/#pricing</loc>
-    <lastmod>2026-03-27</lastmod>
+    <loc>https://thehomeit.com/terms</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
-  <!-- Privacy Policy Page -->
+  <!-- Privacy Policy -->
   <url>
     <loc>https://thehomeit.com/privacy</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

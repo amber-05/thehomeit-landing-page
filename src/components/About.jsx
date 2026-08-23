@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Heart, Globe } from 'lucide-react';
+import SEO from './SEO';
 
 const VALUES = [
     { Icon: Shield, title: 'Security First', desc: 'Every feature is built with resident safety as the top priority — from gate access to data privacy.' },
@@ -18,6 +19,11 @@ const fade = (delay = 0) => ({
 
 const About = () => (
     <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-color)' }}>
+        <SEO
+            title="About TheHomeIT (Homeit) — Revolutionizing Society Management in India"
+            description="Learn how TheHomeIT (thehomeit.com) is modernizing housing society management, visitor security, and emergency alerts across India."
+            canonical="https://thehomeit.com/about"
+        />
         {/* Hero */}
         <section style={{ padding: '6rem 0 4rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{
@@ -28,14 +34,14 @@ const About = () => (
             }} />
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <motion.p {...fade()} style={{ color: 'var(--accent-color)', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-                    About Homeit
+                    About TheHomeIT & Homeit
                 </motion.p>
                 <motion.h1 {...fade(0.08)} style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.1, marginBottom: '1.5rem' }}>
                     We're building the OS<br />
                     <span className="gradient-text">for Indian neighbourhoods.</span>
                 </motion.h1>
                 <motion.p {...fade(0.16)} style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', maxWidth: '580px', margin: '0 auto', lineHeight: 1.7 }}>
-                    Homeit started with a simple observation: managing a housing society is unnecessarily painful. We're here to fix that — one community at a time.
+                    TheHomeIT (Homeit) started with a simple observation: managing a housing society is unnecessarily painful. We're here to fix that — one community at a time.
                 </motion.p>
             </div>
         </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Megaphone, HeartHandshake, ArrowRight } from 'lucide-react';
+import SEO from './SEO';
 
 const ROLES = [
     {
@@ -32,6 +33,11 @@ const fade = (delay = 0) => ({
 
 const Careers = () => (
     <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-color)' }}>
+        <SEO
+            title="Careers at TheHomeIT (Homeit) — Join Our PropTech Mission"
+            description="Join TheHomeIT (thehomeit.com / Homeit). Explore open engineering, growth, and customer success positions building India's smart society platform."
+            canonical="https://thehomeit.com/careers"
+        />
         {/* Hero */}
         <section style={{ padding: '5rem 0', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{

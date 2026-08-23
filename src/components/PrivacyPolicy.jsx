@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Lock, Eye, FileText, Info, Users, Database, Trash2, Mail, ExternalLink, Scale } from 'lucide-react';
+import SEO from './SEO';
 
 const PrivacyPolicy = () => {
     useEffect(() => {
@@ -90,6 +91,11 @@ const PrivacyPolicy = () => {
 
     return (
         <div style={{ paddingTop: '140px', minHeight: '100vh', background: 'var(--bg-color)', paddingBottom: '120px' }}>
+            <SEO
+                title="Privacy Policy — TheHomeIT (Homeit)"
+                description="Privacy Policy and data security guidelines for TheHomeIT (thehomeit.com / Homeit) society management platform."
+                canonical="https://thehomeit.com/privacy"
+            />
             <style>
                 {`
                     .policy-text p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1.05rem; }

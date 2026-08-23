@@ -1,8 +1,48 @@
 # robots.txt for https://thehomeit.com
-# Society Management & Emergency Response Platform
+# Platform: TheHomeIT / Homeit - Smart Society Management & Emergency Response
 
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Explicit AI Search Engines & LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemaps & LLM Context References
 Sitemap: https://thehomeit.com/sitemap.xml

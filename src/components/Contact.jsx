@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import SEO from './SEO';
 
 const fade = (delay = 0) => ({
     initial: { opacity: 0, y: 24 },
@@ -15,7 +16,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const subject = encodeURIComponent(`Homeit Inquiry — ${form.society || form.name}`);
+        const subject = encodeURIComponent(`TheHomeIT Inquiry — ${form.society || form.name}`);
         const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nSociety: ${form.society}\n\nMessage:\n${form.message}`);
         window.location.href = `mailto:yugverma05@gmail.com?subject=${subject}&body=${body}`;
         setSent(true);
@@ -30,6 +31,11 @@ const Contact = () => {
 
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-color)' }}>
+            <SEO
+                title="Contact TheHomeIT (Homeit) — Get in Touch & Schedule a Demo"
+                description="Connect with TheHomeIT (thehomeit.com / Homeit) team. Get a free demo for your apartment society or talk to our onboarding specialists."
+                canonical="https://thehomeit.com/contact"
+            />
             <section style={{ padding: '5rem 0', position: 'relative', overflow: 'hidden' }}>
                 <div style={{
                     position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
